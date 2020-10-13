@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: iDashboard-jira-collector
+  data:
+    mongodb:
+#      uri: mongodb://root:password@localhost:27017/New_iDashboard
+      uri: mongodb://localhost/New_iDashboard
+
+logging:
+  level:
+    com.cognizant.collector.jira.client.JiraClient: OFF
+
+  pattern:
+    console: '%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n'
+
+scheduler:
+  cron: 0 0/1 * * * *
+  enable: true
+
+jiraServer:
+  url: "http://10.120.100.231:9090/rest/api/latest"
+  username: "Subbu"
+  password: "Passw0rd"
+
+server :
+  port: 8088
