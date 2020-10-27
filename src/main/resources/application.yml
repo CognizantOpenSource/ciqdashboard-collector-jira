@@ -3,8 +3,8 @@ spring:
     name: iDashboard-jira-collector
   data:
     mongodb:
-#      uri: mongodb://root:password@localhost:27017/New_iDashboard
-      uri: mongodb://localhost/New_iDashboard
+      uri: mongodb://idashboard:${spring.data.mongodb.credents}@10.120.100.231/idashboard
+      credents: ENC(rwQEK1M5vbHwwhhqx6pBDHn4Ut4IrKHbBUsrB0AUR8XHc8GN/Sf4IRVma96OWroe)
 
 logging:
   level:
@@ -24,3 +24,8 @@ jiraServer:
 
 server :
   port: 8088
+
+jasypt:
+  encryptor:
+    algorithm: PBEWITHHMACSHA512ANDAES_256
+    password: LeapSecurityKey
