@@ -172,7 +172,7 @@ public class Fields {
     }
 
     @JsonIgnore
-    public JiraIssue getJiraIssue(JiraIssue issue){
+    public JiraIssue getJiraIssue(JiraIssue issue) {
         BeanUtils.copyProperties(this, issue);
 
         this.setJiraIssueProject(issue);
@@ -191,12 +191,14 @@ public class Fields {
     }
 
     private JiraIssue setCustomField(JiraIssue issue) {
-        issue.setCustomField10204(customField10204!=null?(String)((Map)customField10204).get("value"):null);
-        issue.setCustomField10205(customField10205!=null?(String)((Map)customField10205).get("value"):null);
-        issue.setCustomField10206(customField10206!=null?(String)((Map)customField10206).get("value"):null);
-        issue.setCustomField10207(customField10207!=null?(String)((Map)customField10207).get("value"):null);
-        issue.setCustomField10208(customField10208!=null?(String)((Map)customField10208).get("value"):null);
-        issue.setCustomField10201(customField10201!=null?(String)((Map)customField10201).get("value"):null);
+        String value = "value";
+
+        if (null != customField10204) issue.setCustomField10204((String) ((Map) customField10204).get(value));
+        if (null != customField10205) issue.setCustomField10205((String) ((Map) customField10205).get(value));
+        if (null != customField10206) issue.setCustomField10206((String) ((Map) customField10206).get(value));
+        if (null != customField10207) issue.setCustomField10207((String) ((Map) customField10207).get(value));
+        if (null != customField10208) issue.setCustomField10208((String) ((Map) customField10208).get(value));
+        if (null != customField10201) issue.setCustomField10201((String) ((Map) customField10201).get(value));
         return issue;
     }
 
@@ -330,16 +332,16 @@ public class Fields {
     }
 
     @JsonIgnore
-    private JiraIssue setJiraIssuePriority(JiraIssue issue){
-      if(priority == null) return issue;
-      issue.setPriority((String) ((Map) priority).get("name"));
-      issue.setPriorityId((String) ((Map) priority).get("id"));
-      return issue;
+    private JiraIssue setJiraIssuePriority(JiraIssue issue) {
+        if (priority == null) return issue;
+        issue.setPriority((String) ((Map) priority).get("name"));
+        issue.setPriorityId((String) ((Map) priority).get("id"));
+        return issue;
     }
 
     @JsonIgnore
-    private JiraIssue setJiraIssueFixVersion(JiraIssue issue){
-        if(fixVersions==null||fixVersions.size()<=0) return issue;
+    private JiraIssue setJiraIssueFixVersion(JiraIssue issue) {
+        if (fixVersions == null || fixVersions.size() <= 0) return issue;
         issue.setFixVersionId(fixVersions.stream().findFirst().get().getId());
         issue.setFixVersionName(fixVersions.stream().findFirst().get().getName());
         issue.setFixVersionArchived(fixVersions.stream().findFirst().get().isArchived());
@@ -349,10 +351,10 @@ public class Fields {
     }
 
     @JsonIgnore
-    private JiraIssue setJiraIssueComponents(JiraIssue issue){
-        if(components==null||components.size()<=0)  return issue;
-        issue.setComponentId((String) ((Map)components.get(0)).get("id"));
-        issue.setComponentName((String) ((Map)components.get(0)).get("name"));
+    private JiraIssue setJiraIssueComponents(JiraIssue issue) {
+        if (components == null || components.size() <= 0) return issue;
+        issue.setComponentId((String) ((Map) components.get(0)).get("id"));
+        issue.setComponentName((String) ((Map) components.get(0)).get("name"));
         return issue;
     }
 }
