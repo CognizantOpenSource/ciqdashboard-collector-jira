@@ -15,7 +15,7 @@ import java.util.Map;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@Document(collection = "jiraIssues")
+@Document(collection = "source_jiraIssues")
 public class JiraIssue {
 
     @Id
