@@ -29,3 +29,4 @@ jasypt:
   encryptor:
     algorithm: PBEWITHHMACSHA512ANDAES_256
     password: LeapSecurityKey
+    bean: JasyptEncryptorBean
