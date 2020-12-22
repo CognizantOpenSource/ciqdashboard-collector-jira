@@ -2,6 +2,7 @@ package com.cognizant.collector.jira.component;
 
 import com.cognizant.collector.jira.beans.core.SprintDetails;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -17,6 +18,8 @@ import static com.cognizant.collector.jira.constants.Constant.*;
 @Component
 @Slf4j
 public class CommonUtilComponent {
+
+    public static String collectionName;
 
     public String parseDateToString(Date date) {
         if (null == date) return "";
@@ -113,5 +116,14 @@ public class CommonUtilComponent {
         sprintDetails.setSprintState(state);
 
         return sprintDetails;
+    }
+
+    @Value("${spring.data.mongodb.collection}")
+    public void setCollectionName(String collectionName) {
+        this.collectionName = SOURCE+collectionName;
+    }
+
+    public static String getCollectionName(){
+        return collectionName;
     }
 }

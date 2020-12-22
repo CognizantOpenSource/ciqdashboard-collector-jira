@@ -15,7 +15,7 @@ import java.util.Map;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@Document(collection = "source_jiraIssues")
+@Document(collection = "#{T(com.cognizant.collector.jira.component.CommonUtilComponent).getCollectionName()}")
 public class JiraIssue {
 
     @Id
@@ -70,7 +70,7 @@ public class JiraIssue {
     private List<Object> attachment = null;
     private Object aggregateTimeEstimate;
     private Date resolutionDate;
-    private Integer workRatio;
+    private Long workRatio;
     private String summary;
     private Object lastViewed;
     private Object watches;
@@ -171,12 +171,15 @@ public class JiraIssue {
     /* status */
 
     /* Fields */
-    private String customField10204;
-    private String customField10205;
-    private String customField10206;
-    private String customField10207;
-    private String customField10208;
-    private String customField10201;
+    private String customfield_11500;
+    private String customfield_10424;
+    private String customfield_10416;
+    private String customfield_10417;
+    private String customfield_10418;
+    private String customfield_10419;
+    private Double customfield_10106;
+    private String customfield_10411;
+
 
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<>();
