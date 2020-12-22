@@ -80,7 +80,10 @@ public class Fields {
     @JsonProperty("timetracking")
     private Object timeTracking;
     @JsonProperty("customfield_10104")
-    private List<String> customField10104 = null;
+    private Object customField10104;
+
+    @JsonProperty("customfield_10101")
+    private List<String> customfield_10101 = null;
     @JsonProperty("customfield_10203")
     private Object customField10203;
     @JsonProperty("customfield_10105")
@@ -92,7 +95,7 @@ public class Fields {
     @JsonProperty("resolutiondate")
     private String resolutionDate;
     @JsonProperty("workratio")
-    private Integer workRatio;
+    private Long workRatio;
     @JsonProperty("summary")
     private String summary;
     @JsonProperty("lastViewed")
@@ -148,16 +151,20 @@ public class Fields {
     @JsonProperty("status")
     private Status status;
     private SprintDetails sprintDetails;
-    @JsonProperty("customfield_10204")
-    private Object customField10204;
-    @JsonProperty("customfield_10205")
-    private Object customField10205;
-    @JsonProperty("customfield_10206")
-    private Object customField10206;
-    @JsonProperty("customfield_10207")
-    private Object customField10207;
-    @JsonProperty("customfield_10208")
-    private Object customField10208;
+    @JsonProperty("customfield_11500")
+    private Object customfield_11500;
+    @JsonProperty("customfield_10416")
+    private Object customfield_10416;
+    @JsonProperty("customfield_10417")
+    private Object customfield_10417;
+    @JsonProperty("customfield_10418")
+    private Object customfield_10418;
+    @JsonProperty("customfield_10419")
+    private Object customfield_10419;
+    @JsonProperty("customfield_10106")
+    private Double customfield_10106;
+    @JsonProperty("customfield_10411")
+    private Object customfield_10411;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<>();
 
@@ -193,12 +200,12 @@ public class Fields {
     private JiraIssue setCustomField(JiraIssue issue) {
         String value = "value";
 
-        if (null != customField10204) issue.setCustomField10204((String) ((Map) customField10204).get(value));
-        if (null != customField10205) issue.setCustomField10205((String) ((Map) customField10205).get(value));
-        if (null != customField10206) issue.setCustomField10206((String) ((Map) customField10206).get(value));
-        if (null != customField10207) issue.setCustomField10207((String) ((Map) customField10207).get(value));
-        if (null != customField10208) issue.setCustomField10208((String) ((Map) customField10208).get(value));
-        if (null != customField10201) issue.setCustomField10201((String) ((Map) customField10201).get(value));
+        if (null != customfield_11500) issue.setCustomfield_11500((String) ((Map) customfield_11500).get(value));
+        if (null != customfield_10416) issue.setCustomfield_10416((String) ((Map) customfield_10416).get(value));
+        if (null != customfield_10417) issue.setCustomfield_10417((String) ((Map) customfield_10417).get(value));
+        if (null != customfield_10418) issue.setCustomfield_10418((String) ((Map) customfield_10418).get(value));
+        if (null != customfield_10419) issue.setCustomfield_10419((String) ((Map) customfield_10419).get(value));
+        if (null != customfield_10411) issue.setCustomfield_10411((String) ((Map) customfield_10411).get(value));
         return issue;
     }
 
