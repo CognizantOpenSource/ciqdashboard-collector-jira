@@ -22,8 +22,8 @@ class JiraIssuesTest {
     @Test
     void getProjectTest(){
         List<Project> projects = jiraClient.getJiraProjects();
-        System.out.println("projects");
-        Assertions.assertNotNull(jiraClient);
+//        System.out.println("projects");
+        Assertions.assertNotNull(projects);
     }
 
     @Test
@@ -31,9 +31,9 @@ class JiraIssuesTest {
         List<Project> projects = jiraClient.getJiraProjects();
         projects.forEach(project -> {
             Date maxUpdatedDate = service.getMaxUpdatedDate(project.getKey());
-            System.out.println(maxUpdatedDate);
+//            System.out.println(maxUpdatedDate);
         });
-        Assertions.assertNotNull(service);
+        Assertions.assertNotNull(projects);
     }
 
 }

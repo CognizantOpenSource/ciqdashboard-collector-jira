@@ -35,7 +35,7 @@ public class JobScheduler {
     }
 
     private void validCheckToProcess() {
-        if (!isSchedulerEnabled) System.exit(0);
+        if (!isSchedulerEnabled)  throw new RuntimeException();
     }
 
     @PostConstruct
