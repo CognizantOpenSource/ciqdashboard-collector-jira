@@ -19,7 +19,7 @@ import static com.cognizant.collector.jira.constants.Constant.*;
 @Slf4j
 public class CommonUtilComponent {
 
-    public static String collectionName;
+    static String collectionName;
 
     public String parseDateToString(Date date) {
         if (null == date) return "";
@@ -34,7 +34,7 @@ public class CommonUtilComponent {
             LocalDateTime dateTime = LocalDateTime.parse(dateString, DateTimeFormatter.ISO_DATE_TIME);
             date = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
         } catch (Exception e) {
-            log.info("Return value as null, due to exception while parsing string to date, Exception:{}", e.getLocalizedMessage());
+            log.info("Return value as null, due to exception while parsing string to date, Exception:{}");
         }
         return date;
     }
@@ -44,7 +44,7 @@ public class CommonUtilComponent {
         try {
             integer = Integer.valueOf(integerString);
         } catch (Exception e) {
-            log.info("Return value as null, due to exception while parsing string to integer, Exception:{}", e.getLocalizedMessage());
+            log.info("Return value as null, due to exception while parsing string to integer, Exception:{}");
         }
         return integer;
     }
