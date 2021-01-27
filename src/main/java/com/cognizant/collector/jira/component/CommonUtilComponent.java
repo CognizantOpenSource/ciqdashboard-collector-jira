@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -33,7 +34,7 @@ public class CommonUtilComponent {
         try {
             LocalDateTime dateTime = LocalDateTime.parse(dateString, DateTimeFormatter.ISO_DATE_TIME);
             date = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
-        } catch (Exception e) {
+        } catch (DateTimeParseException e) {
             log.info("Return value as null, due to exception while parsing string to date, Exception:{}");
         }
         return date;
@@ -43,7 +44,7 @@ public class CommonUtilComponent {
         Integer integer = null;
         try {
             integer = Integer.valueOf(integerString);
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             log.info("Return value as null, due to exception while parsing string to integer, Exception:{}");
         }
         return integer;
