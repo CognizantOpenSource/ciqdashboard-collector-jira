@@ -19,7 +19,7 @@ class SprintDetailsTest {
     @Test
     void regexTest() {
         SprintDetails sprintDetails = utilComponent.getSprintDetailsFromString(SprintDetailsTest.sprintDetails);
-        Assertions.assertNotNull(utilComponent);
+        Assertions.assertNotNull(sprintDetails);
     }
 
 

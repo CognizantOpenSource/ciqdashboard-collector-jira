@@ -2,6 +2,7 @@ package com.cognizant.collector.jira.component;
 
 import com.cognizant.collector.jira.beans.core.SprintDetails;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -9,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -17,6 +19,8 @@ import static com.cognizant.collector.jira.constants.Constant.*;
 @Component
 @Slf4j
 public class CommonUtilComponent {
+
+    static String collectionName;
 
     public String parseDateToString(Date date) {
         if (null == date) return "";
@@ -30,8 +34,8 @@ public class CommonUtilComponent {
         try {
             LocalDateTime dateTime = LocalDateTime.parse(dateString, DateTimeFormatter.ISO_DATE_TIME);
             date = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
-        } catch (Exception e) {
-            log.info("Return value as null, due to exception while parsing string to date, Exception:{}", e.getLocalizedMessage());
+        } catch (DateTimeParseException e) {
+            log.info("Return value as null, due to exception while parsing string to date, Exception:{}");
         }
         return date;
     }
@@ -40,8 +44,8 @@ public class CommonUtilComponent {
         Integer integer = null;
         try {
             integer = Integer.valueOf(integerString);
-        } catch (Exception e) {
-            log.info("Return value as null, due to exception while parsing string to integer, Exception:{}", e.getLocalizedMessage());
+        } catch (NumberFormatException e) {
+            log.info("Return value as null, due to exception while parsing string to integer, Exception:{}");
         }
         return integer;
     }
@@ -113,5 +117,14 @@ public class CommonUtilComponent {
         sprintDetails.setSprintState(state);
 
         return sprintDetails;
+    }
+
+    @Value("${spring.data.mongodb.collection}")
+    public void setCollectionName(String collectionName) {
+        this.collectionName = SOURCE+collectionName;
+    }
+
+    public static String getCollectionName(){
+        return collectionName;
     }
 }

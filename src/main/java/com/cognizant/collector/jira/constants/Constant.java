@@ -11,6 +11,7 @@ public class Constant {
     public static final String JQL_UPDATED_GTE = "updated >= '%s' ";
     public static final String JQL_AND = " AND ";
     public static final String JQL = "jql";
+    public static final String SOURCE ="source_jira_";
 
     private Constant() {
     }

@@ -43,9 +43,9 @@ public class JiraIssueComponent {
     private void getIssuesAndStoreInDB(List<JiraIssueInfo> issueInfoList) {
         List<JiraIssue> issues = issueInfoList.stream().map(jiraIssueInfo -> {
             IssueType issueType = jiraIssueInfo.getFields().getIssuetype();
-            List<String> customField10104 = jiraIssueInfo.getFields().getCustomField10104();
-            if (issueType !=null && "Story".equals(issueType.getName()) && !CollectionUtils.isEmpty(customField10104)){
-                String customField = customField10104.get(0);
+            List<String> customfield_10101 = jiraIssueInfo.getFields().getCustomfield_10101();
+            if (issueType !=null && !CollectionUtils.isEmpty(customfield_10101)){
+                String customField = customfield_10101.get(0);
                 SprintDetails sprintDetails = utilComponent.getSprintDetailsFromString(customField);
                 jiraIssueInfo.getFields().setSprintDetails(sprintDetails);
             }
