@@ -32,6 +32,7 @@ class JiraIssuesTest {
         projects.forEach(project -> {
             Date maxUpdatedDate = service.getMaxUpdatedDate(project.getKey());
 //            System.out.println(maxUpdatedDate);
+            Assertions.assertNotNull(maxUpdatedDate);
         });
         Assertions.assertNotNull(projects);
     }
