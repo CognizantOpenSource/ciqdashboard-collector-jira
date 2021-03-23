@@ -1,9 +1,9 @@
 spring:
   application:
-    name: iDashboard-jira-collector
+    name: CIQDashboard-jira-collector
   data:
     mongodb:
-      uri: mongodb://idashboard:${spring.data.mongodb.credents}@10.120.100.231/idashboard
+      uri: mongodb://ciqdashboard:${spring.data.mongodb.credents}@10.120.100.231/ciqdashboard
       credents: ENC(rwQEK1M5vbHwwhhqx6pBDHn4Ut4IrKHbBUsrB0AUR8XHc8GN/Sf4IRVma96OWroe)
       collection: Issues
 
